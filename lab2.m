@@ -9,9 +9,9 @@ clear all
 A = [1 -1.5 0.64];
 B = 1;
 f0 = 0:0.001:0.5;
-G = freqz(B,A,2*pi*f0);
+desired = freqz(B,A,2*pi*f0);
 
-plot(f0,20*log10(abs(G)),'LineWidth',3)
+plot(f0,20*log10(abs(desired)),'LineWidth',3)
 xlabel('Normalized Frequency')
 ylabel('Magnitude (dB)')
 title('True Spectrum')
@@ -153,9 +153,9 @@ A = [1 -0.24 0.08 -0.37 0.52];
 B = [1 0.56 0.81]; 
 
 f0 = 0:0.001:0.5;
-G = freqz(B,A,2*pi*f0);
+desired = freqz(B,A,2*pi*f0);
 
-plot(f0,20*log10(abs(G)))
+plot(f0,20*log10(abs(desired)))
 hold on
 
 % 2
@@ -192,7 +192,43 @@ title('Spectral Estimation using Parametric AR Modeling (p = 8)')
 legend('True Sprectrum', 'Estimated Spectrum')
 
 
+%% Task 6-A
+clc
+clf
+clear all
+close all
 
+% 1 
+
+A = [1 -0.13 0.9];
+B = 1;
+C = 1;
+D = [1 -0.8 0.2];
+
+f0 = 0:0.001:0.5;
+desired = freqz(B,A,2*pi*f0);
+disturbance = freqz(D,C,2*pi*f0);
+
+
+
+plot(f0,20*log10(abs(desired)))
+hold on
+plot(f0,20*log10(abs(disturbance)))
+xlabel('Normalized Frequency')
+ylabel('Magnitude (dB)')
+title('True Spectrum')
+legend('Desired Signal', 'Disturbance')
+
+
+% 2 (Theoretical)
+
+% 3
+
+%% Task 6-B
+clc
+clf
+clear all
+close all
 
 
 
